@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  <p id="cc"></p>
+      <progress id="pro" value="0" max="100"></progress>
+  <input type="button" value="下载" id="btn" onclick="cc()">
+  </body>
+<script>
+    var intValue=0;
+    var intTimer;
+    var objPro=document.getElementById("pro");
+    var cc1=document.getElementById("cc");
+    function jindu() {
+        intValue++;
+        objPro.value=intValue;
+         if(objPro.value>=objPro.max){
+             clearInterval(intTimer);
+             cc1.innerHTML="下载完成";
+         }
+        else{
+             cc1.innerHTML="正在下载"+intValue+"%";
+         }
+    }
+       function cc() {
+           intTimer=setInterval(jindu,1000);
+       }
+</script>
+</html>
